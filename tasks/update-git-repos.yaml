@@ -3,5 +3,5 @@
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
-    bare: "{{ item.bare | defualt(omit) }}"
+    bare: "{{ item.bare | default(omit) }}"
     update: true
