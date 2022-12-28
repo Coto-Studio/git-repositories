@@ -1,2 +1,5 @@
 ---
 # tasks file for git-repositories
+- name: Update Git Repositories
+  include_tasks: update-git-repos.yaml
+  loop: "{{ git_repos }}"

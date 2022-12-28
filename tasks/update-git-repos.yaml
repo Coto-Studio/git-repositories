@@ -1,0 +1,7 @@
+---
+- name: "Update git repo: {{ item.name }}"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    bare: "{{ item.bare | defualt(omit) }}"
+    update: true
