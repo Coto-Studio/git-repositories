@@ -19,11 +19,11 @@
 - name: Check if 1Password ssh agent is active
   stat:
     path: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
-  register: 1password_agent
+  register: one_password_agent
 
 - name: Relink 1Password ssh agent
   file:
     path: ~/.1password/agent.sock
     src: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
     state: link
-  when: 1password_agent.stat.exists
+  when: one_password_agent.stat.exists
