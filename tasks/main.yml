@@ -21,6 +21,12 @@
     path: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
   register: one_password_agent
 
+- name: Create ~/.1password/ if needed
+  file:
+    path: ~/.1password/
+    state: directory
+  when: one_password_agent.stat.exists
+
 - name: Relink 1Password ssh agent
   file:
     path: ~/.1password/agent.sock
