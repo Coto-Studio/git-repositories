@@ -1,5 +1,11 @@
 ---
 # tasks file for git-repositories
 - name: Update Git Repositories
-  include_tasks: update-git-repos.yaml
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    bare: "{{ item.bare | default(omit) }}"
+    update: true
   loop: "{{ git_repos }}"
+  loop_control:
+    label: "{{ item.dest }}"
