@@ -1,5 +1,12 @@
 ---
 # tasks file for git-repositories
+- name: Make sure known_hosts is up to date
+  lineinfile:
+    path: ~/.ssh/known_hosts
+    line: "{{ item }}"
+    mode: "0600"
+  loop: "{{known_hosts}}"
+
 - name: Remove 1Password ssh agent
   file:
     path: ~/.1password/agent.sock

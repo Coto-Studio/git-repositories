@@ -1,3 +1,4 @@
 ---
 # defaults file for git-repositories
+known_hosts: []
 git_repos: []
