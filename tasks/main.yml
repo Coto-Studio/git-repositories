@@ -4,6 +4,7 @@
   lineinfile:
     path: ~/.ssh/known_hosts
     line: "{{ item }}"
+    create: true
     mode: "0600"
   loop: "{{known_hosts}}"
 
